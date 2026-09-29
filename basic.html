@@ -1,0 +1,82 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator - CalcEasy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Calc<span>Easy</span></a>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<main class="calculator-page">
+
+    <a href="index.html" class="back">← Back to calculators</a>
+
+    <div class="calculator-box">
+
+        <div class="big-icon">＋</div>
+
+        <h1>Basic Calculator</h1>
+        <p>Perform simple mathematical calculations.</p>
+
+        <input type="number" id="number1" placeholder="First number">
+
+        <select id="operator">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (×)</option>
+            <option value="/">Division (÷)</option>
+        </select>
+
+        <input type="number" id="number2" placeholder="Second number">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="result" id="result">
+            Your result will appear here
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+function calculate() {
+
+    const a = Number(document.getElementById("number1").value);
+    const b = Number(document.getElementById("number2").value);
+    const operator = document.getElementById("operator").value;
+
+    let result;
+
+    if (operator === "+") result = a + b;
+    if (operator === "-") result = a - b;
+    if (operator === "*") result = a * b;
+
+    if (operator === "/") {
+        if (b === 0) {
+            document.getElementById("result").textContent =
+                "Cannot divide by zero.";
+            return;
+        }
+
+        result = a / b;
+    }
+
+    document.getElementById("result").textContent =
+        "Result = " + result;
+}
+</script>
+
+</body>
+</html>
+```
